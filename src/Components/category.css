@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 18rem;
+    min-height: max-content;
+    display: flex;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    text-align: center;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #343a40;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .d-flex {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+.logo-section img {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border-radius: 50%;
+}
+
+.logo-section img:hover {
+    transform: rotate(8deg) scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 136, 0, 0.5);
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+}
+
+/* Featured Section */
+.featured-section {
+    padding: 40px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.featured-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.featured-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* === Section Container === */
+.featured-section {
+    padding: 80px 20px;
+    background: linear-gradient(to right, #fffaf0, #fefefe);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* === Section Heading === */
+.featured-section h2 {
+    font-size: 3rem;
+    color: #1f1f1f;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.featured-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, #ff8800, #f6c90e);
+    border-radius: 4px;
+}
+
+/* === Grid Layout === */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* === Card Styling === */
+.featured-card {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.featured-card h3 {
+    font-size: 1.7rem;
+    color: #ff8800;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.featured-card p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* === Hover Effects === */
+.featured-card::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255, 136, 0, 0.08), transparent 70%);
+    z-index: 0;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.featured-card:hover::before {
+    opacity: 1;
+}
+
+.featured-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border: 2px solid #ff8800;
+    box-shadow: 0 12px 35px rgba(255, 136, 0, 0.2);
+    background-color: #fffef9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #fff7ed, #fffaf3);
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(255, 136, 0, 0.05);
+}

@@ -1,0 +1,71 @@
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-item {
+    margin: 0 15px;
+}
+
+.navbar-item a {
+    color: wheat;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar-item a:hover {
+    text-decoration: underline;
+}
+
+img {
+    margin-left: 30px;
+}
+
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shop-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Georgia', serif;
+    color: wheat;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.shop-name::before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #f6c90e, #ff8800);
+    transition: width 0.4s ease;
+    border-radius: 10px;
+}
+
+.shop-name:hover {
+    color: #ff8800;
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(255, 136, 0, 0.6);
+}
+
+.shop-name:hover::before {
+    width: 100%;
+}
