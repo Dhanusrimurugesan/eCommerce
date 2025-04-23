@@ -1,20 +1,23 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './category.css';
 import { Link } from "react-router-dom";
+import useFetch from "./usefetchcustom";
 
 function Category() {
-    const [things, setThings] = useState([]);
+    // const [things, setThings] = useState([]);
+    const[things]=useFetch("https://fakestoreapi.com/products/categories");
 
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
-            .then(res => res.json())
-            .then(json => setThings(json))
-    }, []);
+    // useEffect(() => {
+    //     fetch('https://fakestoreapi.com/products/categories')
+    //         .then(res => res.json())
+    //         .then(json => setThings(json))
+    // }, []);
 
     return (
         <>
             <div className="container">
+
                 <div className="banner">
                     <h1>Welcome to The Elegant Edge Page</h1>
                     <p>Explore a wide variety of products tailored to your needs.</p>
