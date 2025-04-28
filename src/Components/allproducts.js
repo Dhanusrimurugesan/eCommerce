@@ -1,13 +1,12 @@
 import React from "react";
-import './category.css';
 import { Link } from "react-router-dom";
 import useFetch from "./usefetchcustom";
 
 
-function Electronics() {
+function All() {
 
-    const [things] = useFetch("https://fakestoreapi.com/products/category/electronics");
-    
+    const [things] = useFetch("https://fakestoreapi.com/products");
+
     return (
         <>
             <div className="d-flex justify-content-center flex-wrap ">
@@ -18,8 +17,9 @@ function Electronics() {
                                 <h6>PRODUCT ID: {v.id}</h6>
                                 <img src={v.image} alt={v.title} height="200px" width="200px" ></img>
                                 <h5>{v.title}</h5>
+                                <h6>PRICE: ${v.price}</h6>
                                 <Link to={`/${v.id}`}>
-                                <button className="btn btn-primary">View Details</button>
+                                    <button className="btn btn-primary">View Details</button>
                                 </Link>
                             </div>
                         </div>
@@ -30,4 +30,4 @@ function Electronics() {
         </>
     )
 }
-export default Electronics;
+export default All;

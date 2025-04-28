@@ -9,6 +9,12 @@ import Womenclothing from "./womencloth";
 import Productdetails from "./productdetails";
 import Login from "./login";
 import Signup from "./signup";
+import All from "./allproducts";
+import About from "./about";
+import Services from "./services";
+import Contact from "./contact";
+import Privacy from "./privacy";
+import Terms from "./terms";
 
 
 class Routingdata extends React.Component {
@@ -26,6 +32,16 @@ class Routingdata extends React.Component {
                             <Route path="/:id" element={<Productdetails />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/signup" element={<Signup />} />
+                            <Route path="/allproducts" element={<All />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/services" element={<Services />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/privacy" element={<Privacy />} />
+                            <Route path="/terms" element={<Terms />} />
+
+
+
+
 
                         </Route>
                     </Routes>

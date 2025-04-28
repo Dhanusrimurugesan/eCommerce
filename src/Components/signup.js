@@ -1,107 +1,171 @@
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [error, setError] = useState('');
-    const [successMsg, setSuccessMsg] = useState('');
-    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
 
-    const handleSignup = async (e) => {
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        try {
-            const res = await fetch('https://fakestoreapi.com/users', {
-                method: 'POST',
-                body: JSON.stringify({
-                    email,
-                    username,
-                    password,
-                    name: {
-                        firstname,
-                        lastname
-                    },
-                    address: {
-                        city: 'Sample City',
-                        street: '123 Sample Street',
-                        number: 1,
-                        zipcode: '12345-6789',
-                        geolocation: {
-                            lat: '0',
-                            long: '0'
-                        }
-                    },
-                    phone: '123456789'
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-
-            if (!res.ok) {
-                throw new Error('Signup failed');
-            }
-
-            const data = await res.json();
-            console.log('Signup successful:', data);
-            setSuccessMsg('Signup successful! Redirecting to login...');
-            setTimeout(() => navigate('/'), 2000); // Redirect after 2 seconds
-        } catch (err) {
-            console.error(err);
-            setError('Signup failed. Try again.');
+        if (formData.password !== formData.confirmPassword) {
+            alert('Passwords do not match!');
+            return;
         }
+        console.log('Form submitted:', formData);
     };
 
     return (
-        <div style={{ padding: '20px' }}>
-            <h2>Signup</h2>
-            <form onSubmit={handleSignup}>
-                <input
-                    type="text"
-                    placeholder="First Name"
-                    value={firstname}
-                    onChange={(e) => setFirstname(e.target.value)}
-                    required
-                /><br /><br />
-                <input
-                    type="text"
-                    placeholder="Last Name"
-                    value={lastname}
-                    onChange={(e) => setLastname(e.target.value)}
-                    required
-                /><br /><br />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                /><br /><br />
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                /><br /><br />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                /><br /><br />
-                <button type="submit">Signup</button>
-            </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {successMsg && <p style={{ color: 'green' }}>{successMsg}</p>}
+        <div style={styles.signupContainer}>
+            <div style={styles.signupCard}>
+                <h2 style={styles.signupTitle}>Sign Up</h2>
+                <form onSubmit={handleSubmit}>
+                    <div style={styles.mb3}>
+                        <label htmlFor="name" style={styles.formLabel}><strong>User Name</strong></label>
+                        <input
+                            type="text"
+                            style={styles.formControl}
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <div style={styles.mb3}>
+                        <label htmlFor="email" style={styles.formLabel}><strong>Email Address</strong></label>
+                        <input
+                            type="email"
+                            style={styles.formControl}
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <div style={styles.mb3}>
+                        <label htmlFor="password" style={styles.formLabel}><strong>Password</strong></label>
+                        <input
+                            type="password"
+                            style={styles.formControl}
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <div style={styles.mb3}>
+                        <label htmlFor="confirmPassword" style={styles.formLabel}><strong>Confirm Password</strong></label>
+                        <input
+                            type="password"
+                            style={styles.formControl}
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" style={styles.btnPrimary}>Create Account</button>
+                </form>
+
+                <div style={styles.textCenter}>
+                    <small style={styles.textMuted}>
+                        Already have an account? <a href="/login" style={styles.loginLink}>Log In</a>
+                    </small>
+                </div>
+            </div>
         </div>
     );
 };
 
-export default Signup;
+// Inline Styles
+const styles = {
+    signupContainer: {
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'white',
+    },
+    signupCard: {
+        background: 'white',
+        borderRadius: '15px',
+        padding: '2rem',
+        width: '100%',
+        maxWidth: '400px',
+        boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.15)',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    },
+    signupTitle: {
+        textAlign: 'center',
+        fontWeight: '600',
+        color: '#333',
+        marginBottom: '1.5rem',
+    },
+    formLabel: {
+        fontWeight: '500',
+        color: '#555',
+    },
+    formControl: {
+        borderRadius: '8px',
+        padding: '10px 15px',
+        border: '1px solid #ccc',
+        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+        width: '100%',
+    },
+    formControlFocus: {
+        borderColor: '#4e8cff',
+        boxShadow: '0 0 5px rgba(78, 140, 255, 0.5)',
+    },
+    mb3: {
+        marginBottom: '1rem',
+    },
+    btnPrimary: {
+        backgroundColor: '#4e8cff',
+        border: 'none',
+        borderRadius: '8px',
+        padding: '10px',
+        fontWeight: 'bold',
+        transition: 'background-color 0.3s ease',
+        width: '100%',
+        cursor: 'pointer',
+    },
+    btnPrimaryHover: {
+        backgroundColor: '#3c73d2',
+    },
+    textCenter: {
+        textAlign: 'center',
+        marginTop: '1rem',
+    },
+    textMuted: {
+        color: '#777',
+    },
+    loginLink: {
+        color: '#4e8cff',
+        textDecoration: 'none',
+        fontWeight: '500',
+    },
+};
 
+export default Signup;

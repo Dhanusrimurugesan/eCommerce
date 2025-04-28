@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 
 function Productdetails() {
     const { id } = useParams();
-
     const [Things, setThings] = useState(null);
 
     useEffect(() => {
@@ -29,12 +28,11 @@ function Productdetails() {
                 <>
                     <div className="card">
                         <div className="card-body">
-                            <img src={Things.image} height="200px" width="200px" ></img>
+                            <img src={Things.image} alt="" height="200px" width="200px" ></img>
                             <h5>{Things.title}</h5>
                             <h3>Description</h3>
                             <p>{Things.description}</p>
-                            <h3></h3>
-                            <h4><h3>Category: </h3> {Things.category}</h4>
+                            <h3>Category: </h3> {Things.category}
                             <h5>PRICE: ${Things.price}</h5>
                             <button className="btn btn-primary">Buy Now</button>
                         </div>

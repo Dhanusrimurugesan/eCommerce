@@ -13,14 +13,13 @@ function Jewelery() {
                 {
                     things.map((v) =>
                         <>
-                            <div className="card" style={{ width: "18rem" }}>
+                            <div className="card products-card" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <h6>PRODUCT ID: {v.id}</h6>
                                     <img src={v.image} alt={v.title} height="200px" width="200px" ></img>
                                     <h5>{v.title}</h5>
-                                    <h6>PRICE: ${v.price}</h6>
                                     <Link to={`/${v.id}`}>
-                                        <button className="btn btn-primary">Buy Now</button>
+                                        <button className="btn btn-primary">View Details</button>
                                     </Link>
                                 </div>
                             </div>

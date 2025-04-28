@@ -34,6 +34,10 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .card-title {
@@ -118,13 +122,8 @@ body {
     border-radius: 5px;
     width: 250px;
     text-align: center;
+
 }
-
-
-
-
-
-
 
 
 
@@ -228,3 +227,19 @@ body {
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(255, 136, 0, 0.05);
 }
+
+
+.products-card {
+    height: 600px;
+   
+}
+
+@media (max-width: 768px) {
+    .products-card {
+        height: auto;
+    }
+}
+
+
+
+
