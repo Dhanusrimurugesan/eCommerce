@@ -17,7 +17,7 @@ function Menclothing() {
                             <div className="card products-card" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <h6>PRODUCT ID: {v.id}</h6>
-                                    <img src={v.image} alt={v.title} height="200px" width="200px" ></img>
+                                    <img src={v.image} alt={v.title} height="200px" width="200px" className="d-block mx-auto"></img>
                                     <h5>{v.title}</h5>
                                     <Link to={`/${v.id}`}>
                                         <button className="btn btn-primary">View Details</button>
